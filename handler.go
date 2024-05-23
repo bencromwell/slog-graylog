@@ -90,9 +90,7 @@ func (h *GraylogHandler) Handle(ctx context.Context, record slog.Record) error {
 		Extra:    extra,
 	}
 
-	go func() {
-		_ = h.option.Writer.WriteMessage(msg)
-	}()
+	_ = h.option.Writer.WriteMessage(msg)
 
 	return nil
 }
